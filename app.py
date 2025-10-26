@@ -62,8 +62,11 @@ def crear_grafico_progreso(imc):
     fig.update_layout(
         title="Tu IMC en el contexto de los rangos de salud",
         showlegend=False,
-        height=300
+        height=300,
+        # ⬇️⬇️ ESTA LÍNEA QUITA TODA LA BARRA DE HERRAMIENTAS ⬇️⬇️
+        modebar_remove=['zoom2d', 'pan2d', 'zoomIn2d', 'zoomOut2d', 'autoScale2d', 'resetScale2d', 'toImage']
     )
+    
     return fig
 
 def generar_consejo_local(imc):
@@ -323,8 +326,8 @@ elif menu == "📊 Diagnóstico Personal":
             with col3:
                 st.metric("Meta Recomendada", meta)
             
-            # Gráfico de progreso
-            st.plotly_chart(crear_grafico_progreso(imc), use_container_width=True)
+            # Gráfico de progreso (SIN barra de herramientas)
+            st.plotly_chart(crear_grafico_progreso(imc), use_container_width=True, config={'displayModeBar': False})
             
             # Consejo local
             st.success(f"💡 **Consejo chihuahuense:** {consejo}")
