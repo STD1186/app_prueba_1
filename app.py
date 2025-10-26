@@ -8,7 +8,7 @@ RETOS_DIARIOS = [
     {"id": 1, "descripcion": "Toma 8 vasos de agua hoy", "puntos": 10, "categoria": "Hidratación"},
     {"id": 2, "descripcion": "Consume 2 frutas locales", "puntos": 15, "categoria": "Alimentación"},
     {"id": 3, "descripcion": "Camina 30 minutos", "puntos": 20, "categoria": "Ejercicio"},
-    {"id": 4, "descripcion": "Prepara una comida con ingredientes locales", "puntos": 25, "categoria": "Cocina"},
+    {"id": 4, "descripcion": "Come una comida saludable", "puntos": 25, "categoria": "Alimentación"},
     {"id": 5, "descripcion": "Evita alimentos procesados por un día", "puntos": 30, "categoria": "Salud"}
 ]
 
@@ -67,10 +67,29 @@ def crear_grafico_progreso(imc):
     )
     return fig
 
+def integrar_en_app_existente():
+    # En tu navegación principal, añade una pestaña más:
+    menu = st.sidebar.radio("Navegación", [
+        "🏠 Inicio", 
+        "📊 Diagnóstico Personal", 
+        "💡 Consejos de Salud",  # ← Nueva pestaña
+        "📈 Chihuahua en Números",
+        "🛍️ Mercado Local", 
+        "🎮 Reto Saludable", 
+        "📓 Mi Diario"
+    ])
+    
+    if menu == "💡 Consejos de Salud":
+        mostrar_todos_consejos()
+
+# Ejecutar la app
+if __name__ == "__main__":
+    main()
+
 def generar_consejo_local(imc):
     consejos_bajo_peso = [
         "Incluye más nueces chihuahuenses en tus snacks - son calóricas y nutritivas",
-        "Prepara atole de maíz azul con leche para ganar peso saludablemente"
+        "Prepara atole de maíz con leche para ganar peso saludablemente"
     ]
     consejos_normal = [
         "Mantén tu rutina visitando los mercados locales por frutas frescas",
