@@ -345,6 +345,8 @@ elif menu == "🔄 Reiniciar Progreso":
         st.success("¡Progreso reiniciado correctamente!")
         st.rerun()
 
+@st.cache_data
+def load_data(nrows):
 data_load_state.text("Done! (using st.cache_data)")
 
 # Pie de página
