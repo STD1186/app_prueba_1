@@ -345,6 +345,19 @@ elif menu == "🔄 Reiniciar Progreso":
         st.success("¡Progreso reiniciado correctamente!")
         st.rerun()
 
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Descargar archivo</title>
+</head>
+<body>
+  <h2>Haz clic para descargar el archivo</h2>
+  <a href="archivo.txt" download>
+    <button>Descargar archivo</button>
+  </a>
+</body>
+</html>
+
 # Pie de página
 st.markdown("---")
 st.markdown(
